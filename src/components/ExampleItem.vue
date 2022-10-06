@@ -5,7 +5,8 @@
 
 <script>
 export default {
-  props: ['tt','dt'],}
+  props: ['tt', 'dt'],
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

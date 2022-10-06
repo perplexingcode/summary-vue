@@ -10,6 +10,7 @@ const routes = [
     path: '/example',
     name: 'ExamplePage',
     component: ExamplePage,
+    // component: () => import('../views/ExamplePage.vue'), //deferred import for better performance, the view is then compiled to separate files (x.js & x.js.map in /dist/js).
   },
 ];
 

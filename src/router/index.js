@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ExamplePage from '../views/ExamplePage.vue';
+import ExamplePage from '../views/ExamplePage';
+import GetMints from '../views/GetMints.vue';
 
 const routes = [
   {
@@ -11,6 +12,15 @@ const routes = [
     name: 'ExamplePage',
     component: ExamplePage,
     // component: () => import('../views/ExamplePage.vue'), //deferred import for better performance, the view is then compiled to separate files (x.js & x.js.map in /dist/js).
+  },
+  {
+    //△ Required param num
+    path: '/get-mints/:num',   
+    //△ Optional param num
+    //path: '/get-mints/:num?', 
+
+    name: 'GetMints',
+    component: GetMints,
   },
 ];
 

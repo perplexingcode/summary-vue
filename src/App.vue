@@ -6,7 +6,18 @@
   <ExampleItem tt="An example header." dt="Click the links below to switch page." />
   <div class="nav-items-wrapper">
     <router-link :to="{name: 'Home'}">Home</router-link>
+
+
     <router-link :to="{name: 'ExamplePage'}">ExamplePage</router-link>
+
+    <!-- ○○○ Using URL param  -->
+    <!-- △ For routes with required params -->
+    <router-link :to="{name: 'GetMints',params: { num: 3 }}">Get some mints</router-link>
+    <!-- 
+    △ For routes  with optional params 
+    <router-link :to="{name: 'GetMints'}">Get some mints</router-link>
+-->
+
   </div>
   <router-view />
 </template>

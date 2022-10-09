@@ -1,24 +1,14 @@
-# vue-summary
+Click the mint below to visit my website.<br>
+<a href="https://david-bui.com"><img style="height: 100px; width: 100px" src="src/assets/logo.png"/></a>
 
-## Project setup
-```
-npm install
-```
+git reset HEAD~1
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+git add .  
+git commit -m "notes"
 
-### Compiles and minifies for production
-```
-npm run build
-```
+OR
 
-### Lints and fixes files
-```
-npm run lint
-```
+git config --global alias.self-update '!git reset HEAD~1 && git add . && git commit -m "self-update"'
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+--  
+git self-update

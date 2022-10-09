@@ -1,0 +1,118 @@
+escape with \
+
+#, ##, <...> heading 1-6
+
+heading 1
+==========
+
+heading 2
+----------
+
+Paragraph...
+is the default.
+
+Insert a<br>
+for a line break.   
+or 3 white spaces
+
+**bold text**
+
+*italic text*
+
+***bold italic text***
+
+also **bold**text
+
+>blockquote
+
+>also
+>blockquote
+
+>nested
+>>blockquote
+
+[Click to move to another section](#id-of-a-section)
+<h1 id="id-of-a-section">A section</h1>
+
+My website is [David-Bui](https://david-bui.com)
+
+My website is [David-Bui](https://david-bui.com "Click for Novelty"). Hover to see a title.
+
+Click the image below to visit my website.<br>
+[![David-Bui](/src/assets/logo.png "Click for Novelty")](https://david-bui.com)
+
+
+My website is [David-Bui][1]. Hover to see a title
+
+[1]: <buisondong20@gmail.com> "Click for Novelty"
+
+
+<https://david-bui.com>
+<buisondong20@gmail.com>
+
+
+
+for a horizontal divider
+
+***
+---
+___
+
+for a horizontal divider
+
+
+Class `w-100`
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+1. list
+2. list
+
+1.exact same list
+1.exact same list
+
+1.also exact same list
+8.also exact same list
+
+1.list
+2.list
+1.nested list
+2.nested list
+3.list
+
+- list
+- list
+
++ also list
++ also list
+
+* also list
+* also list
+
+- list
+- list
+ - nested list
+ - nested list
+
++ also list
+    some explanation paragraph
++ also list
+
++ also list
+        <a>An example html</a>
++ also list
+
++ also list
+    ![Alt text](/src/img.png)
++ also list
+
+
+
+
+

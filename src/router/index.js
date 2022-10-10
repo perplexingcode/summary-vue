@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ExamplePage from '../views/ExamplePage.vue';
+import OpenGifts from '../views/OpenGifts.vue';
 
 const routes = [
   {
@@ -10,6 +11,16 @@ const routes = [
     path: '/example',
     name: 'ExamplePage',
     component: ExamplePage,
+  },
+  {
+    path: '/open-gifts/',
+    name: 'OpenGifts',
+    component: OpenGifts,
+    props: (route) => ({ page: parseInt(route.query.page) || 1 }),
+    // props: (route) => {
+    //   let page = parseInt(route.query.page) || 1;
+    //   return { page };
+    // },
   },
 ];
 

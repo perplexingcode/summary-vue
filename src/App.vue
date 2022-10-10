@@ -7,6 +7,7 @@
   <div class="nav-items-wrapper">
     <router-link :to="{name: 'Home'}">Home</router-link>
     <router-link :to="{name: 'ExamplePage'}">ExamplePage</router-link>
+    <router-link :to="{name: 'OpenGifts'}">OpenGifts</router-link>
   </div>
   <router-view />
 </template>

@@ -15,12 +15,25 @@ const routes = [
   },
   {
     //△ Required param num
-    path: '/get-mints/:num',   
+    path: '/get-mints/:num',
     //△ Optional param num
-    //path: '/get-mints/:num?', 
+    //path: '/get-mints/:num?',
+    //△ Caveat: If the route is a required param (eg. /:num), then there will be no / route registered and therefore no route function will be called, unless you change it to optional param (eg. /:num?)
 
     name: 'GetMints',
     component: GetMints,
+    //△ Transform URL parameters (Props Function Mode)
+    props: (route) => ({ number: parseInt(route.params.num) || 9 }),
+
+    //△ No transformation version for a default value (Props Object Mode)
+    // props: { num: 3 }
+
+    // △ Props Function for complex logics
+    // props: (route) => {
+    //   let num = 0;
+    //   //    ... some operations
+    //   return { num };
+    // },
   },
 ];
 

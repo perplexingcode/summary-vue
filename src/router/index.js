@@ -7,10 +7,57 @@ import MintInfo from '../views/mints/MintInfo.vue';
 import MintExamples from '../views/mints/MintExamples.vue';
 
 const routes = [
+  //○○○: Alias vs Redirect
+  // Alias is more handy but can be penalized in SEO because Google might think you have duplicate contents.
   {
     path: '/',
     name: 'Home',
+    //△ Alias = keep the url
+    // alias: '/home'
   },
+  //△ Redirect => changes url
+  {
+    path: '/home',
+    redirect: '/'
+  },
+
+  //○○○: Redirect routes with params
+
+  {
+    path: '/mints/products/:id',
+    name: 'MintProduct'
+  },
+  //
+  {
+    path: '/mints/product/:id',
+    redirect: () => ({ name: 'MintProduct' })
+  },
+  // Id is a required param so it can be omitted, △ full form below: 
+  // {
+  //   path: '/mints/product/:id',
+  //   redirect: url => ({ name: 'MintProduct', params: { id: url.params.id } })
+  // },
+
+  //○○○: Redirect nested routes with params
+  // eg. /mints/proudcts/:id/product
+  // △ Method 1:
+  // {
+  //   path: '/mints/product/:id',
+  //   redirect: () => ({ name: 'MintProduct' }),
+  //   children: [
+  //     { path: 'brand', redirect: () => ({ name: 'MintBrand' }) },
+  //     { path: 'flavour', redirect: () => ({ name: 'MintFlavour' }) }
+  //   ]
+  // },
+
+  // △ Method 2:
+  // {
+  //   path: '/mints/product/:restOfUrl(.*)',
+  //   redirect: (url) => ({ path: '/mints/products/' + url.params.restOfUrl })
+  // },
+
+  //
+
   {
     path: '/example',
     name: 'ExamplePage',

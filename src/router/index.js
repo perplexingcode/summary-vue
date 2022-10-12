@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ExamplePage from '../views/ExamplePage';
 import GetMints from '../views/GetMints.vue';
+import MintLayout from '../views/mints/MintLayout.vue';
+import MintIntro from '../views/mints/MintIntro.vue';
+import MintInfo from '../views/mints/MintInfo.vue';
+import MintExamples from '../views/mints/MintExamples.vue';
 
 const routes = [
   {
@@ -34,6 +38,30 @@ const routes = [
     //   //    ... some operations
     //   return { num };
     // },
+  },
+  {
+    path: '/mints',
+    name: 'MintLayout',
+    redirect: '/mints/', //Default child
+    component: MintLayout,
+    props: (route) => ({ number: parseInt(route.params.num) || 9 }),
+    children: [
+      {
+        path: '',
+        name: 'MintIntro',
+        component: MintIntro,
+      },
+      {
+        path: 'info',
+        name: 'MintInfo',
+        component: MintInfo,
+      },
+      {
+        path: 'examples',
+        name: 'MintExamples',
+        component: MintExamples,
+      },
+    ],
   },
 ];
 

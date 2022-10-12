@@ -7,12 +7,10 @@
   <div class="nav-items-wrapper">
     <router-link :to="{name: 'Home'}">Home</router-link>
 
-
-    <router-link :to="{name: 'ExamplePage'}">ExamplePage</router-link>
-
     <!-- ○○○ Using URL param  -->
     <!-- △ For routes with required params -->
     <router-link :to="{name: 'GetMints',params: { num: 3 }}">Get some mints</router-link>
+    <router-link :to="{name: 'MintLayout'}">All about mints</router-link>
     <!-- 
     △ For routes  with optional params 
     <router-link :to="{name: 'GetMints'}">Get some mints</router-link>
@@ -48,9 +46,15 @@ export default {
   height: 10rem;
 }
 
+textarea {
+  width: 50%;
+  height: 16rem;
+}
+
 .center {
   text-align: center;
 }
+
 
 .tt {
   background-color: #051c2b;

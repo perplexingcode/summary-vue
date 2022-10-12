@@ -3,21 +3,21 @@
     <img class="logo" alt="Divinity logo" src="./assets/logo.png">
   </div>
 
-  <ExampleItem tt="An example header." dt="Click the links below to switch page." />
+  <BaseHeader tt="This is Syntax." dt="Click the links below to switch page." />
   <div class="nav-items-wrapper">
     <router-link :to="{name: 'Home'}">Home</router-link>
-    <router-link :to="{name: 'ExamplePage'}">ExamplePage</router-link>
+    <router-link :to="{name: 'Data'}">Data</router-link>
   </div>
   <router-view />
 </template>
   
 <script>
-import ExampleItem from './components/ExampleItem.vue'
+import BaseHeader from './components/BaseHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    ExampleItem
+    BaseHeader
   }
 }
 </script>

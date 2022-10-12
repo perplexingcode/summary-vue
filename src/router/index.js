@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ExamplePage from '../views/ExamplePage.vue';
+import DataStx from '../views/DataStx.vue';
 
 const routes = [
   {
@@ -7,9 +7,9 @@ const routes = [
     name: 'Home',
   },
   {
-    path: '/example',
-    name: 'ExamplePage',
-    component: ExamplePage,
+    path: '/data',
+    name: 'Data',
+    component: DataStx,
   },
 ];
 

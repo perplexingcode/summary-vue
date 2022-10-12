@@ -1,13 +1,13 @@
 <template>
   <div class="center">
-    <img class="logo" alt="Divinity logo" src="./assets/logo.png">
+    <img @click="programmaticNavigation" class="logo" alt="Divinity logo" src="./assets/logo.png">
   </div>
 
   <ExampleItem tt="An example header." dt="Click the links below to switch page." />
   <div class="nav-items-wrapper">
     <router-link :to="{name: 'Home'}">Home</router-link>
 
-    <!-- ○○○ Using URL param  -->
+    <!--  Using URL param  -->
     <!-- △ For routes with required params -->
     <router-link :to="{name: 'GetMints',params: { num: 3 }}">Get some mints</router-link>
     <router-link :to="{name: 'MintLayout'}">All about mints</router-link>
@@ -27,6 +27,36 @@ export default {
   name: 'App',
   components: {
     ExampleItem
+  },
+  //○○○ Programmatic Navigation
+  methods: {
+    programmaticNavigation() {
+      // △ <router-link/> is the same as this.$router.push() 
+
+      // △ Path as string
+      this.$router.push('/mints')
+      // △ Path as an object
+      this.$router.push({ path: '/mints' })
+      // △ Named path
+      this.$router.push({ name: 'MintExamples' })
+      // △ Dynamic segment
+      this.$router.push({ name: 'MintProduct', params: { id: 3 } })
+
+      // (!) Multiple pushes: only the last one gets called
+      this.$router.push('/get-mints/3')
+      //, however will stuck if there are errors
+
+      // △ Query parameters
+      this.$router.push({ name: 'MintFlavors', query: { page: 2 } })
+
+      // △ Omit history, user cannot go back
+      this.$router.replace('/mints')
+
+      // Go backwards/forwards history
+      this.$router.go(-1)
+      this.$router.go(1)
+
+    }
   }
 }
 </script>
@@ -44,6 +74,10 @@ export default {
 .logo {
   width: 10rem;
   height: 10rem;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
 
 textarea {

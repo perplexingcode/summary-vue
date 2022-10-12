@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ExamplePage from '../views/ExamplePage';
 import GetMints from '../views/GetMints.vue';
 import MintLayout from '../views/mints/MintLayout.vue';
 import MintIntro from '../views/mints/MintIntro.vue';
@@ -7,7 +6,7 @@ import MintInfo from '../views/mints/MintInfo.vue';
 import MintExamples from '../views/mints/MintExamples.vue';
 
 const routes = [
-  //○○○: Alias vs Redirect
+  //Alias vs Redirect
   // Alias is more handy but can be penalized in SEO because Google might think you have duplicate contents.
   {
     path: '/',
@@ -21,7 +20,7 @@ const routes = [
     redirect: '/'
   },
 
-  //○○○: Redirect routes with params
+  //Redirect routes with params
 
   {
     path: '/mints/products/:id',
@@ -38,7 +37,7 @@ const routes = [
   //   redirect: url => ({ name: 'MintProduct', params: { id: url.params.id } })
   // },
 
-  //○○○: Redirect nested routes with params
+  //Redirect nested routes with params
   // eg. /mints/proudcts/:id/product
   // △ Method 1:
   // {
@@ -61,7 +60,6 @@ const routes = [
   {
     path: '/example',
     name: 'ExamplePage',
-    component: ExamplePage,
     // component: () => import('../views/ExamplePage.vue'), //deferred import for better performance, the view is then compiled to separate files (x.js & x.js.map in /dist/js).
   },
   {

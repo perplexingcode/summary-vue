@@ -1,4 +1,5 @@
 <template>
+  <h4>{{this.GStore.flashMessage}}</h4>
   <div class="center">
     <img @click="programmaticNavigation" class="logo" alt="Divinity logo" src="./assets/logo.png">
   </div>
@@ -28,12 +29,12 @@ export default {
   components: {
     ExampleItem
   },
-
+  inject: ['GStore'],
   created() {
-
-    // △ Silmulating failed connection
+    console.log(this.GStore);
+    //  Silmulating failed connection
     setTimeout(() => {
-      // △ Request to unreachable server
+      //  Request to unreachable server
       if (this.$route.query.server == 'BlackHole') {
         this.$router.push({ name: 'NetworkError' })
       }

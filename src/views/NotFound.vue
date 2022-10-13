@@ -1,4 +1,4 @@
-<!-- △ Handling page/resource not existing  -->
+<!--  Handling page/resource not existing  -->
 <template>
   <h2>Oops! The {{resource}} you're looking for does not exist.</h2>
   <router-link to="/">Go to Home Page</router-link>

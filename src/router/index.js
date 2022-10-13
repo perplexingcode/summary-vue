@@ -58,21 +58,21 @@ const routes = [
   // },
 
   //
-  ////○○○ Error handling
+  //// Error handling
   /* 
-  △ 3 types of errors
+   3 types of errors
   - Page not found
   - Resource not found
   - Connectivity isssue
   */
-  //△ Page/resource not found
+  // Page/resource not found
   {
     path: '/:catchAll(.*)',
     name: 'NotFound',
     component: NotFound,
-    props: true // △ For dynamic displaying when it comes to the name of the resource
+    props: true //  For dynamic displaying when it comes to the name of the resource
   },
-  //△ Network error
+  // Network error
   {
     path: '/network-error',
     name: 'NetworkError',

@@ -4,8 +4,7 @@
     <img @click="programmaticNavigation" class="logo" alt="Divinity logo" src="./assets/logo.png">
   </div>
 
-  <ExampleItem tt="An example header." dt="Click the links below to switch page." />
-  <div class="nav-items-wrapper">
+  <div class="nav-items-wrapper tt">
     <router-link :to="{name: 'Home'}">Home</router-link>
 
     <!--  Using URL param  -->
@@ -16,22 +15,16 @@
      For routes  with optional params 
     <router-link :to="{name: 'GetMints'}">Get some mints</router-link>
 -->
-
   </div>
   <router-view />
 </template>
   
 <script>
-import ExampleItem from './components/ExampleItem.vue'
 
 export default {
   name: 'App',
-  components: {
-    ExampleItem
-  },
   inject: ['GStore'],
   created() {
-    console.log(this.GStore);
     //  Silmulating failed connection
     setTimeout(() => {
       //  Request to unreachable server
@@ -76,6 +69,10 @@ export default {
 </script>
   
 <style>
+body {
+  background-color: turquoise;
+}
+
 #app {
   font-family: comfortaa, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -108,6 +105,12 @@ textarea {
   background-color: #051c2b;
   color: #fff;
   padding: 2px 0 2px 0
+}
+
+.tt>a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .nav-items-wrapper {

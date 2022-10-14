@@ -6,6 +6,9 @@ import MintInfo from '../views/mints/MintInfo.vue';
 import MintExamples from '../views/mints/MintExamples.vue';
 import NotFound from '../views/NotFound.vue';
 import NetworkError from '../views/NetworkError.vue';
+import nProgress from 'nprogress';
+// // △ Send data from Per-Route Guards to component
+// import GetMintsStore from '@/store/GetMintsStore';
 
 const routes = [
   //Alias vs Redirect
@@ -85,7 +88,7 @@ const routes = [
   {
     path: '/example',
     name: 'ExamplePage',
-    // component: () => import('../views/ExamplePage.vue'), //deferred import for better performance, the view is then compiled to separate files (x.js & x.js.map in /dist/js).
+    // component: () => import(/* webpackChunkName: "example" */ '../views/ExamplePage.vue'), //deferred import for better performance, the view is then compiled to separate files (x.js & x.js.map in /dist/js).
   },
   {
     // Required param num
@@ -98,6 +101,13 @@ const routes = [
     component: GetMints,
     // Transform URL parameters (Props Function Mode)
     props: (route) => ({ number: parseInt(route.params.num) || 9 }),
+
+    // // △ Per-Route Guards
+    // beforeEnter: (to, from, next) => {
+    // // Do some API call...fetching data...
+    // // Do something with the GetMintsStore
+    // // Error handling
+    // }
 
     // No transformation version for a default value (Props Object Mode)
     // props: { num: 3 }
@@ -139,5 +149,27 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+//○○○ Global routing hooks for global route guards
+
+// △ router.beforeEach((to, from) => {...})
+// Called before each navigation, and before in-component guards
+
+// △ router.beforeResolve((to, from) => {...})
+// Called before each navigation, but after in-component guards
+
+// △ router.afterEach((to, from) => {...})
+// Called after navigation is complete
+
+
+// △ Implement progress bar for every page load
+router.beforeEach(() => {
+  nProgress.start()
+})
+
+router.afterEach(() => {
+  nProgress.done()
+})
+
 
 export default router;

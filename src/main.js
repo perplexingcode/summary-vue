@@ -4,7 +4,7 @@ import router from './router';
 import 'nprogress/nprogress.css'
 import GetMintsStore from './store/GetMintsStore'
 
-// △ Create a global reative object for data storage
+// Create a global reative object for data storage
 const GStore = reactive({ flashMessage: '' });
 
 

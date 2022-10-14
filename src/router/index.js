@@ -7,7 +7,7 @@ import MintExamples from '../views/mints/MintExamples.vue';
 import NotFound from '../views/NotFound.vue';
 import NetworkError from '../views/NetworkError.vue';
 import nProgress from 'nprogress';
-// // △ Send data from Per-Route Guards to component
+// // Send data from Per-Route Guards to component
 // import GetMintsStore from '@/store/GetMintsStore';
 
 const routes = [
@@ -102,7 +102,7 @@ const routes = [
     // Transform URL parameters (Props Function Mode)
     props: (route) => ({ number: parseInt(route.params.num) || 9 }),
 
-    // // △ Per-Route Guards
+    // // Per-Route Guards
     // beforeEnter: (to, from, next) => {
     // // Do some API call...fetching data...
     // // Do something with the GetMintsStore
@@ -123,6 +123,11 @@ const routes = [
     path: '/mints',
     name: 'MintLayout',
     redirect: '/mints/', //Default child
+
+    ////○○○  Meta tags
+    // △ Meta tags are custom js object can be referenced in route and in component
+    // △ Meta tags are inherited in children routes 
+    meta: { requireAuthentication: true },
     component: MintLayout,
     props: (route) => ({ number: parseInt(route.params.num) || 9 }),
     children: [
@@ -150,19 +155,19 @@ const router = createRouter({
   routes,
 });
 
-//○○○ Global routing hooks for global route guards
+// Global routing hooks for global route guards
 
-// △ router.beforeEach((to, from) => {...})
+// router.beforeEach((to, from) => {...})
 // Called before each navigation, and before in-component guards
 
-// △ router.beforeResolve((to, from) => {...})
+// router.beforeResolve((to, from) => {...})
 // Called before each navigation, but after in-component guards
 
-// △ router.afterEach((to, from) => {...})
+// router.afterEach((to, from) => {...})
 // Called after navigation is complete
 
 
-// △ Implement progress bar for every page load
+// Implement progress bar for every page load
 router.beforeEach(() => {
   nProgress.start()
 })

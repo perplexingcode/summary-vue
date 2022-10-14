@@ -54,35 +54,35 @@ export default {
     }
   },
 
-  //○○○ In-Component Route Guards
-  //// △ Hooks
-  // △ beforeRouteEnter(routeTo, routerFrom, next)
+  // In-Component Route Guards
+  //// Hooks
+  // beforeRouteEnter(routeTo, routerFrom, next)
   // Called before the component is created, no this keyword
   // (!) Enter is only called when a route is being entered from a different route, in that case, use beforeRouteUpdate
 
-  // △ beforeRouteUpdate(routeTo, routerFrom, next)
+  // beforeRouteUpdate(routeTo, routerFrom, next)
   // Called when route changes, but the component has not, has this keyword
 
-  // △ beforeRouteLeave(routeTo, routerFrom, next)
+  // beforeRouteLeave(routeTo, routerFrom, next)
   // Called when navigating away from route, has this keyword
 
   beforeRouteLeave() {
-    // NProgress.start() // △ Quick progress bar for request
+    // NProgress.start() // Quick progress bar for request
     if (this.num) {
       const answer = window.confirm(`Do you really want to leave? You haven't received all your mints.`)
       if (!answer) return false
     }
     if (this.num == 0) { return true }
-    // NProgress.done()// △ Quick progress bar for request
+    // NProgress.done()// Quick progress bar for request
   },
 
 
-  //// △ Return syntax
+  //// Return syntax
   // next() = next(true) = return true => redirect
   // next(false) = return false => block redirect
   // next('/path') = return '/path'
   // next({name:'event-list'}) = return {name:'event-list'}
-  // △ return with logics
+  // return with logics
   // next((component) => {/*...logics...*/}) //Component here is referred as Vm (View Model) in the docs
 
 

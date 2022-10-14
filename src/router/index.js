@@ -124,9 +124,9 @@ const routes = [
     name: 'MintLayout',
     redirect: '/mints/', //Default child
 
-    ////○○○  Meta tags
-    // △ Meta tags are custom js object can be referenced in route and in component
-    // △ Meta tags are inherited in children routes 
+    //// Meta tags
+    // Meta tags are custom js object can be referenced in route and in component
+    // Meta tags are inherited in children routes 
     meta: { requireAuthentication: true },
     component: MintLayout,
     props: (route) => ({ number: parseInt(route.params.num) || 9 }),
@@ -153,6 +153,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  //○○○  Scroll configuration
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 });
 
 // Global routing hooks for global route guards

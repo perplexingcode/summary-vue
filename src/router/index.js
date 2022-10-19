@@ -153,7 +153,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  //○○○  Scroll configuration
+  //Scroll configuration
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition

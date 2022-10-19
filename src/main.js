@@ -7,9 +7,13 @@ import GetMintsStore from './store/GetMintsStore'
 // Create a global reative object for data storage
 const GStore = reactive({ flashMessage: '' });
 
-
-createApp(App)
-  .use(router)
+//○○○  Fix router objects empty issue
+const app = createApp(App)
+app.use(router)
   .provide('GStore', GStore)
   .provide('GetMintsStore', GetMintsStore)
-  .mount('#app');
+
+router.isReady().then(() => {
+  app.mount('#app');
+})
+
